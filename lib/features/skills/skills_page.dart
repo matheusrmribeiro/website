@@ -4,6 +4,7 @@ import 'package:website/core/languages/language_view_model.dart';
 import 'package:website/core/theme/text_styles.dart';
 import 'package:website/core/utils/sizing.dart';
 import 'package:website/core/widgets/body_page_widget.dart';
+import 'package:website/core/widgets/change_observer.dart';
 
 class SkillsPage extends StatelessWidget {
   SkillsPage({Key? key}) : super(key: key);
@@ -48,17 +49,22 @@ class SkillsPage extends StatelessWidget {
               SizedBox(
                 height: Sizing.heightPerc(0.5),
                 width: Sizing.widthPerc(0.3),
-                child: ListView(
-                  children: [
-                    Text("SOFT SKILLS", style: style.skillsTitleStyle),
-                    SizedBox(height: 20),
-                    skill(languageViewModel.data["skills_body_soft_energized"].toUpperCase()),
-                    skill(languageViewModel.data["skills_body_soft_attentive"].toUpperCase()),
-                    skill(languageViewModel.data["skills_body_soft_creative"].toUpperCase()),
-                    skill(languageViewModel.data["skills_body_soft_team"].toUpperCase()),
-                    skill(languageViewModel.data["skills_body_soft_communication"].toUpperCase()),
-                    skill(languageViewModel.data["skills_body_soft_management"].toUpperCase()),
-                  ],
+                child: ChangeObserver(
+                  value: languageViewModel,
+                  builder: (context, LanguageViewModel controller) {
+                    return ListView(
+                      children: [
+                        Text("SOFT SKILLS", style: style.skillsTitleStyle),
+                        SizedBox(height: 20),
+                        skill(controller.data["skills_body_soft_energized"].toUpperCase()),
+                        skill(controller.data["skills_body_soft_attentive"].toUpperCase()),
+                        skill(controller.data["skills_body_soft_creative"].toUpperCase()),
+                        skill(controller.data["skills_body_soft_team"].toUpperCase()),
+                        skill(controller.data["skills_body_soft_communication"].toUpperCase()),
+                        skill(controller.data["skills_body_soft_management"].toUpperCase()),
+                      ],
+                    );
+                  }
                 ),
               ),
             ],
