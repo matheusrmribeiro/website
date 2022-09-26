@@ -2,6 +2,8 @@
 
 My personal website hosted on Github Pages.
 
+> Ongoing project, further improvements will be made.
+
 ## About
 
 This project is structured with **Clean Architecture** and **MVVM** using _ChangeNotifier_ for State Management.
