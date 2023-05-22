@@ -1,4 +1,3 @@
-import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:website/core/languages/language_view_model.dart';
@@ -23,37 +22,37 @@ class HomeFooterWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               CustomIcon(
-                icon: FeatherIcons.linkedin,
+                icon: "icons/linkedin.svg",
                 onTap: (){
                   UrlHelper.open("https://www.linkedin.com/in/matheus-ribeiro-miranda/");
                 },
               ),
               CustomIcon(
-                icon: FeatherIcons.github,
+                icon: "icons/github.svg",
                 onTap: (){
                   UrlHelper.open("https://github.com/matheusrmribeiro");
                 },
               ),
               CustomIcon(
-                icon: FeatherIcons.instagram,
+                icon: "icons/instagram.svg",
                 onTap: (){
                   UrlHelper.open("https://www.instagram.com/_matheusrm/");
                 },
               ),
               CustomIcon(
-                icon: FeatherIcons.facebook,
+                icon: "icons/facebook.svg",
                 onTap: (){
                   UrlHelper.open("https://www.facebook.com/matheusribeiromiranda");
                 },
               ),
               CustomIcon(
-                icon: FeatherIcons.bookmark,
+                icon: "icons/bookmark.svg",
                 onTap: (){
                   UrlHelper.open("https://medium.com/@matheustech");
                 },
               ),
               CustomIcon(
-                icon: FeatherIcons.terminal,
+                icon: "icons/terminal.svg",
                 onTap: (){
                   UrlHelper.open("https://pt.stackoverflow.com/users/87785/matheus-ribeiro");
                 },

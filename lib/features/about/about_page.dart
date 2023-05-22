@@ -1,4 +1,3 @@
-import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -29,10 +28,10 @@ class AboutPage extends StatelessWidget {
                       Html(
                         style: {
                           "p": Style(
-                              fontSize: FontSize(style.homeDescriptionStyle.fontSize, units: "px"),
+                              fontSize: FontSize(style.homeDescriptionStyle.fontSize ?? 12, Unit.px),
                               color: AppColors.secondaryTextColor),
                           "b": Style(
-                              fontSize: FontSize(TextStyles().homeDescriptionStyle.fontSize, units: "px"),
+                              fontSize: FontSize(TextStyles().homeDescriptionStyle.fontSize ?? 12, Unit.px),
                               color: AppColors.primaryTextColor)
                         },
                         data: languageViewModel.data["about_body_description"],

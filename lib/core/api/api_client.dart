@@ -15,8 +15,8 @@ class APIClient {
     }
     var options = BaseOptions(
         baseUrl: GIT_HUB,
-        connectTimeout: 5000,
-        receiveTimeout: 3000,
+        connectTimeout: Duration(milliseconds: 5000),
+        receiveTimeout: Duration(milliseconds: 3000),
         headers: headers,
     );
     Dio dio = Dio(options);

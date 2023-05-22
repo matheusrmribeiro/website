@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:website/core/theme/app_colors.dart';
 import 'package:website/core/theme/text_styles.dart';
 
 class CustomIcon extends StatefulWidget {
   const CustomIcon({
-    this.icon,
+    required this.icon,
     required this.onTap,
   });
 
-  final IconData? icon;
+  final String icon;
   final VoidCallback onTap;
 
   @override
@@ -36,9 +37,9 @@ class _CustomIconState extends State<CustomIcon> {
         },
         child: SizedBox(
           width: 24,
-          child: Icon(
-            widget.icon,
-            color: (isHover) ? Colors.white : AppColors.hintColor,
+          child: SvgPicture.asset(
+              widget.icon,
+              color: (isHover) ? Colors.white : AppColors.hintColor,
           ),
         ),
       ),
