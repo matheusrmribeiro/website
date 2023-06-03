@@ -1,6 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:website/core/languages/language_utils.dart';
+import 'package:website/core/theme/app_colors.dart';
 import 'package:website/core/utils/sizing.dart';
+import 'package:website/core/widgets/LoadingWidget.dart';
 import 'package:website/core/widgets/body_page_widget.dart';
 import 'package:website/features/projects/presenter/projects_view_model.dart';
 
@@ -18,6 +21,9 @@ class ProjectsPage extends StatelessWidget {
       child: ListenableBuilder(
         listenable: projectsViewModel,
         builder: (context, _) {
+          if (projectsViewModel.isLoading)
+            return LoadingWidget(message: LanguageUtils.getString("projects_loading"));
+
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

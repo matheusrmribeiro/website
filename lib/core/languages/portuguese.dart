@@ -26,5 +26,7 @@ Map<String, dynamic> portuguese = {
     "skills_body_soft_team": "Trabalho em equipe",
     "skills_body_soft_communication": "Boa comunicação",
     "skills_body_soft_management": "Auto gerenciamento",
+    "projects_loading": "Buscando projetos...",
+    "projects_fail_to_load": "Falha ao buscar os projetos.",
   }
 };

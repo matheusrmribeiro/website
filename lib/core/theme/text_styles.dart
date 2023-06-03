@@ -22,6 +22,11 @@ class TextStyles {
       color: AppColors.white,
       fontWeight: FontWeight.w500);
 
+  final TextStyle hint = TextStyle(
+      fontSize: 14,
+      color: Colors.white,
+      fontWeight: FontWeight.w500);
+
   final textWhite = TextStyle(
       fontSize: 15,
       color: AppColors.white,
