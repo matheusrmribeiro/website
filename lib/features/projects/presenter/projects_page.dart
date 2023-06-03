@@ -19,40 +19,35 @@ class ProjectsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BodyPageWidget(
       child: ListenableBuilder(
-        listenable: projectsViewModel,
-        builder: (context, _) {
-          if (projectsViewModel.isLoading)
-            return LoadingWidget(message: LanguageUtils.getString("projects_loading"));
+          listenable: projectsViewModel,
+          builder: (context, _) {
+            if (projectsViewModel.isLoading) return LoadingWidget(message: LanguageUtils.getString("projects_loading"));
 
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: Sizing.heightPerc(0.65),
-                child: Listener(
-                  onPointerSignal: (pointerSignal) {
-                    if (pointerSignal is PointerScrollEvent) {
-                      scrollController.animateTo(
-                        scrollController.offset + pointerSignal.scrollDelta.dy,
-                        curve: Curves.decelerate,
-                        duration: const Duration(milliseconds: 150),
-                      );
-                    }
-                  },
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      controller: scrollController,
-                      itemCount: projectsViewModel.projects.length,
-                      itemBuilder: (_, int index) {
-                        return CardWidget(project: projectsViewModel.projects[index]);
-                      },
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: Sizing.heightPerc(0.65),
+                  child: Listener(
+                    onPointerSignal: (pointerSignal) {
+                      if (pointerSignal is PointerScrollEvent) {
+                        scrollController.animateTo(
+                          scrollController.offset + pointerSignal.scrollDelta.dy,
+                          curve: Curves.decelerate,
+                          duration: const Duration(milliseconds: 150),
+                        );
+                      }
+                    },
+                    child: SingleChildScrollView(
+                      child: Wrap(
+                        children: projectsViewModel.projects.map((item) => CardWidget(project: item)).toList(),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ],
-          );
-        }
-      ),
+              ],
+            );
+          }),
     );
   }
 }

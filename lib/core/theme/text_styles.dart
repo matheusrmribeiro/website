@@ -65,7 +65,9 @@ class TextStyles {
   TextStyle get projectDescriptionStyle => TextStyle(
       fontSize: (Sizing.widthPerc(0.1) * 0.10),
       color: AppColors.secondaryTextColor,
-      fontWeight: FontWeight.w100);
+      fontWeight: FontWeight.w100,
+      overflow: TextOverflow.ellipsis
+  );
 
   final hintText = TextStyle(
       fontSize: 16,

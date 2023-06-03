@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:website/core/languages/language_utils.dart';
 import 'package:website/core/theme/app_colors.dart';
 import 'package:website/core/theme/text_styles.dart';
 import 'package:website/core/utils/sizing.dart';
@@ -14,41 +15,43 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(20),
-      height: Sizing.widthPerc(1),
-      width: 250,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: InkWell(
+    return SelectionArea(
+      child: Container(
+        margin: EdgeInsets.all(20),
+        width: 250,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            GestureDetector(
               onTap: () {
                 UrlHelper.open(project.url);
               },
-              child: Container(
-                width: 250,
-                decoration: BoxDecoration(
-                    color: AppColors.accentColor,
-                    borderRadius: BorderRadius.all(Radius.circular(5))),
-                child: Center(
-                  child: SvgPicture.asset(
-                    "icons/share.svg",
-                    color: AppColors.primaryColor,
+              child: Tooltip(
+                message: LanguageUtils.getString("tooltip_open"),
+                child: Container(
+                  width: 250,
+                  height: 150,
+                  decoration: BoxDecoration(
+                      color: AppColors.accentColor,
+                      borderRadius: BorderRadius.all(Radius.circular(5))),
+                  child: Center(
+                    child: SvgPicture.asset(
+                      "icons/share.svg",
+                      color: AppColors.primaryColor,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-          SizedBox(height: 10),
-          Text(project.name, style: style.projectNameStyle),
-          Text(
-            project.description ?? "",
-            style: style.projectDescriptionStyle,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ],
+            SizedBox(height: 10),
+            Text(project.name, style: style.projectNameStyle),
+            Text(
+              project.description ?? "",
+              style: style.projectDescriptionStyle,
+              maxLines: 2,
+            ),
+          ],
+        ),
       ),
     );
   }

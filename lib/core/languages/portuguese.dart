@@ -6,6 +6,7 @@ Map<String, dynamic> portuguese = {
     "about": "Sobre",
     "skills": "Habilidades",
     "projects": "Projetos",
+    "tooltip_open": "Abrir",
     "home_foot": "DESENVOLVIDO COM FLUTTER",
     "home_body_name": "Matheus Ribeiro Miranda",
     "home_body_role": "Mobile Developer",
