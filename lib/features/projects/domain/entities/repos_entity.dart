@@ -5,6 +5,7 @@ class ReposEntity {
     required this.description,
     required this.stargazersCount,
     required this.updatedAt,
+    required this.topics,
   });
 
   final String name;
@@ -12,6 +13,7 @@ class ReposEntity {
   final String? description;
   final int stargazersCount;
   final String updatedAt;
+  final List<String> topics;
 
   static ReposEntity mapper(Map<String, dynamic> response) => ReposEntity(
         name: response["name"],
@@ -19,5 +21,6 @@ class ReposEntity {
         updatedAt: response["updated_at"],
         description: response["description"],
         stargazersCount: response["stargazers_count"],
+        topics: (response["topics"] as List).map((e) => e as String).toList(),
       );
 }

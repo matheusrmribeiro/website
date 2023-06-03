@@ -39,8 +39,9 @@ class ProjectsPage extends StatelessWidget {
                       }
                     },
                     child: SingleChildScrollView(
+                      controller: ScrollController(initialScrollOffset: 0.0),
                       child: Wrap(
-                        children: projectsViewModel.projects.map((item) => CardWidget(project: item)).toList(),
+                        children: projectsViewModel.filterProjectsToList.map((item) => CardWidget(project: item)).toList(),
                       ),
                     ),
                   ),

@@ -15,6 +15,9 @@ class ProjectsViewModel extends BaseViewModel {
 
   List<ReposEntity> projects = [];
 
+  List<ReposEntity> get filterProjectsToList =>
+      projects.where((element) => element.topics.contains("portfolio")).toList();
+
   Future<void> fetchData() async {
     loadingStatus(true, message: LanguageUtils.getString("projects_loading"));
     ResponseWrapper response = await _repository.getRepos();
@@ -25,5 +28,4 @@ class ProjectsViewModel extends BaseViewModel {
       Toast.showMessage("projects_fail_to_load", toastKind: ToastKind.error);
     loadingStatus(false);
   }
-
 }
