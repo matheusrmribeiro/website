@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:website/core/utils/sizing.dart';
 import 'package:website/core/widgets/body_page_widget.dart';
-import 'package:website/core/widgets/change_observer.dart';
 import 'package:website/features/projects/presenter/projects_view_model.dart';
 
 import 'widgets/card_widget.dart';
@@ -10,15 +9,15 @@ import 'widgets/card_widget.dart';
 class ProjectsPage extends StatelessWidget {
   ProjectsPage({Key? key}) : super(key: key);
 
-  final viewModel = ProjectsViewModel();
+  final projectsViewModel = ProjectsViewModel();
   final scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     return BodyPageWidget(
-      child: ChangeObserver(
-        value: viewModel,
-        builder: (context, ProjectsViewModel controller) {
+      child: ListenableBuilder(
+        listenable: projectsViewModel,
+        builder: (context, _) {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -37,9 +36,9 @@ class ProjectsPage extends StatelessWidget {
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       controller: scrollController,
-                      itemCount: controller.projects.length,
+                      itemCount: projectsViewModel.projects.length,
                       itemBuilder: (_, int index) {
-                        return CardWidget(project: controller.projects[index]);
+                        return CardWidget(project: projectsViewModel.projects[index]);
                       },
                   ),
                 ),

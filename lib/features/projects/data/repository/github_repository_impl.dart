@@ -8,7 +8,7 @@ class GithubRepositoryImpl extends GithubRepositoryInterface {
   final api = Modular.get<APIClient>();
 
   Future<ResponseWrapper> getRepos() async {
-    return api.get(path: "/repos");
+    return api.request(type: RequestType.get, path: "/repos");
   }
   
 }

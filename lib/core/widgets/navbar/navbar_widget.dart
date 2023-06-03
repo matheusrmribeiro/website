@@ -3,7 +3,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:website/core/languages/language_view_model.dart';
 import 'package:website/core/theme/text_styles.dart';
 import 'package:website/core/utils/sizing.dart';
-import 'package:website/core/widgets/change_observer.dart';
 import 'package:website/core/widgets/navbar/navbar_entity.dart';
 import 'package:website/core/widgets/navbar/navbar_view_model.dart';
 
@@ -60,13 +59,13 @@ class _NavbarWidget extends State<NavbarWidget> {
               ),
             ),
             Expanded(
-              child: ChangeObserver(
-                value: navbarViewModel,
-                builder: (context, NavbarViewModel controller) {
+              child: ListenableBuilder(
+                listenable: navbarViewModel,
+                builder: (context, _) {
                   return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: widget.pages.map((e) => NavbarItem(item: e, isSelected: controller.currentRoute == e.route)).toList(),
+                    children: widget.pages.map((e) => NavbarItem(item: e, isSelected: navbarViewModel.currentRoute == e.route)).toList(),
                   );
                 }
               ),

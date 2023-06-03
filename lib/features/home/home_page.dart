@@ -9,20 +9,22 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BodyPageWidget(
-      child: Column(
-        children: [
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                HomeBodyWidget(),
-              ],
+      builder: (context) {
+        return Column(
+          children: [
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  HomeBodyWidget(),
+                ],
+              ),
             ),
-          ),
-          HomeFooterWidget(),
-        ],
-      ),
+            HomeFooterWidget(),
+          ],
+        );
+      }
     );
   }
 }

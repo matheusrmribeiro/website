@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:website/core/constants.dart';
+import 'package:website/core/languages/language_utils.dart';
 import 'package:website/core/languages/language_view_model.dart';
 import 'package:website/core/theme/app_colors.dart';
 import 'package:website/core/utils/sizing.dart';
-import 'package:website/core/widgets/change_observer.dart';
 import 'package:website/core/widgets/navbar/navbar_entity.dart';
 import 'package:website/core/widgets/navbar/navbar_view_model.dart';
 import 'package:website/core/widgets/navbar/navbar_widget.dart';
@@ -17,7 +17,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final viewModel = Modular.get<LanguageViewModel>();
   final navbarViewModel = Modular.get<NavbarViewModel>();
 
   @override
@@ -32,26 +31,26 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       body: Row(
         children: [
-          ChangeObserver(
-              value: viewModel,
-              builder: (_, LanguageViewModel controller) {
+          ListenableBuilder(
+              listenable: Modular.get<LanguageViewModel>(),
+              builder: (BuildContext context, Widget? child) {
                 return NavbarWidget(
                   pages: [
                     NavbarPageEntity(
                       ROUTE_HOME,
-                      controller.data["home"],
+                      LanguageUtils.getString("home"),
                     ),
                     NavbarPageEntity(
                       ROUTE_ABOUT,
-                      controller.data["about"],
+                      LanguageUtils.getString("about"),
                     ),
                     NavbarPageEntity(
                       ROUTE_SKILLS,
-                      controller.data["skills"],
+                      LanguageUtils.getString("skills"),
                     ),
                     NavbarPageEntity(
                       ROUTE_PROJECTS,
-                      controller.data["projects"],
+                      LanguageUtils.getString("projects"),
                     ),
                   ],
                 );

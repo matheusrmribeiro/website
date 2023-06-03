@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:website/core/languages/language_utils.dart';
 import 'package:website/core/languages/language_view_model.dart';
 import 'package:website/core/theme/text_styles.dart';
 import 'package:website/core/utils/url_helper.dart';
-import 'package:website/core/widgets/change_observer.dart';
 import 'package:website/core/widgets/customIcon.dart';
 
 class HomeFooterWidget extends StatelessWidget {
@@ -59,13 +59,8 @@ class HomeFooterWidget extends StatelessWidget {
               ),
             ],
           ),
-          ChangeObserver(
-            value: viewModel,
-            builder: (context, LanguageViewModel controller) {
-              return Text(controller.data["home_foot"],
-                style: style.hintText,
-              );
-            }
+          Text(LanguageUtils.getString("home_foot"),
+            style: style.hintText,
           ),
         ],
       ),
