@@ -10,7 +10,10 @@ class HomeBodyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      margin: EdgeInsets.only(
+        left: Sizing.isMobile() ? 30 : 0
+      ),
       width: Sizing.widthPerc(1),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

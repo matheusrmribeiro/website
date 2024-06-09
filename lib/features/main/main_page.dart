@@ -17,6 +17,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  final languageViewModel = Modular.get<LanguageViewModel>();
   final navbarViewModel = Modular.get<NavbarViewModel>();
 
   @override
@@ -29,39 +30,58 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
+      body: Stack(
         children: [
-          ListenableBuilder(
-              listenable: Modular.get<LanguageViewModel>(),
-              builder: (BuildContext context, Widget? child) {
-                return NavbarWidget(
-                  pages: [
-                    NavbarPageEntity(
-                      ROUTE_HOME,
-                      LanguageUtils.getString("home"),
-                    ),
-                    NavbarPageEntity(
-                      ROUTE_ABOUT,
-                      LanguageUtils.getString("about"),
-                    ),
-                    NavbarPageEntity(
-                      ROUTE_SKILLS,
-                      LanguageUtils.getString("skills"),
-                    ),
-                    NavbarPageEntity(
-                      ROUTE_PROJECTS,
-                      LanguageUtils.getString("projects"),
-                    ),
-                  ],
-                );
-              }),
-          Container(
-            width: 1,
-            color: AppColors.accentColor,
+          Column(
+            children: [
+              ListenableBuilder(
+                listenable: Modular.get<LanguageViewModel>(),
+                builder: (BuildContext context, Widget? child) {
+                  return NavbarWidget(
+                    pages: [
+                      NavbarPageEntity(
+                        ROUTE_HOME,
+                        LanguageUtils.getString("home"),
+                      ),
+                      NavbarPageEntity(
+                        ROUTE_ABOUT,
+                        LanguageUtils.getString("about"),
+                      ),
+                      NavbarPageEntity(
+                        ROUTE_SKILLS,
+                        LanguageUtils.getString("skills"),
+                      ),
+                      NavbarPageEntity(
+                        ROUTE_PROJECTS,
+                        LanguageUtils.getString("projects"),
+                      ),
+                    ],
+                  );
+                },
+              ),
+              Container(
+                height: 1,
+                color: AppColors.accentColor,
+                margin: EdgeInsets.all(15),
+              ),
+              Expanded(
+                child: RouterOutlet(),
+              )
+            ],
           ),
-          Expanded(
-            child: RouterOutlet(),
-          )
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Container(
+              margin: EdgeInsets.only(left: 15, bottom: 15),
+              child: IconButton(
+                onPressed: languageViewModel.changeLanguage,
+                icon: Icon(
+                  Icons.translate,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

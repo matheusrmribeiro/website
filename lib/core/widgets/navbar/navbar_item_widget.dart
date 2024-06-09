@@ -26,7 +26,7 @@ class _NavbarItemState extends State<NavbarItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 15, bottom: 64),
+      margin: EdgeInsets.symmetric(horizontal: 15),
       child: InkWell(
         focusColor: Colors.transparent,
         hoverColor: Colors.transparent,

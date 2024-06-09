@@ -28,50 +28,30 @@ class _NavbarWidget extends State<NavbarWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Theme.of(context).scaffoldBackgroundColor,
-      width: 180,
-      height: Sizing.size.height,
-      child: Container(
-        margin: EdgeInsets.only(top: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 100,
-              child: TextButton(
-                onPressed: languageViewModel.changeLanguage,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.translate,
-                      color: Colors.white,
+      width: Sizing.size.width,
+      height: 40,
+      margin: EdgeInsets.only(top: 20),
+      child: ListenableBuilder(
+        listenable: navbarViewModel,
+        builder: (context, _) {
+          return Center(
+            child: ListView(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              children: widget.pages
+                  .map(
+                    (e) => Align(
+                      alignment: Alignment.center,
+                      child: NavbarItem(
+                        item: e,
+                        isSelected: navbarViewModel.currentRoute == e.route,
+                      ),
                     ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "EN/PT",
-                      style: styles.textWhite,
-                    ),
-                  ],
-                ),
-              ),
+                  )
+                  .toList(),
             ),
-            Expanded(
-              child: ListenableBuilder(
-                listenable: navbarViewModel,
-                builder: (context, _) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: widget.pages.map((e) => NavbarItem(item: e, isSelected: navbarViewModel.currentRoute == e.route)).toList(),
-                  );
-                }
-              ),
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

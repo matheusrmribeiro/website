@@ -48,22 +48,22 @@ class TextStyles {
       fontWeight: FontWeight.normal);
 
   TextStyle get skillsTitleStyle => TextStyle(
-      fontSize: (Sizing.widthPerc(0.1) * 0.10),
+      fontSize: Sizing.isMobile() ? 14 : 16,
       color: AppColors.white,
       fontWeight: FontWeight.bold);
 
   TextStyle get skillsStyle => TextStyle(
-      fontSize: (Sizing.widthPerc(0.1) * 0.10),
+      fontSize: Sizing.isMobile() ? 14 : 16,
       color: AppColors.white,
       fontWeight: FontWeight.w100);
 
   TextStyle get projectNameStyle => TextStyle(
-      fontSize: (Sizing.widthPerc(0.1) * 0.10),
+      fontSize: Sizing.isMobile() ? 14 : 16,
       color: AppColors.white,
       fontWeight: FontWeight.w600);
 
   TextStyle get projectDescriptionStyle => TextStyle(
-      fontSize: (Sizing.widthPerc(0.1) * 0.10),
+      fontSize: Sizing.isMobile() ? 14 : 16,
       color: AppColors.secondaryTextColor,
       fontWeight: FontWeight.w100,
       overflow: TextOverflow.ellipsis

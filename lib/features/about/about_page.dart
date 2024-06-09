@@ -3,6 +3,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:website/core/languages/language_utils.dart';
 import 'package:website/core/theme/app_colors.dart';
 import 'package:website/core/theme/text_styles.dart';
+import 'package:website/core/utils/sizing.dart';
 import 'package:website/core/widgets/body_page_widget.dart';
 
 class AboutPage extends StatelessWidget {
@@ -46,7 +47,7 @@ class AboutPage extends StatelessWidget {
                   ),
                   Text(
                     LanguageUtils.getString("about_body_quote"),
-                    style: style.hintTextBig,
+                    style: Sizing.isMobile() ? style.hintText : style.hintTextBig,
                   ),
                 ],
               ),
