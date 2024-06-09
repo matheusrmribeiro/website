@@ -30,11 +30,9 @@ class AppWidget extends StatelessWidget {
         theme: ThemeData(
           brightness: Brightness.light,
           primaryColor: AppColors.primaryColor,
-          colorScheme: ColorScheme.fromSwatch()
-              .copyWith(secondary: AppColors.accentColor),
-          backgroundColor: AppColors.backgroundColor,
           scaffoldBackgroundColor: AppColors.backgroundColor,
-          fontFamily: "Montserrat",
+          fontFamily: "Montserrat", colorScheme: ColorScheme.fromSwatch()
+              .copyWith(secondary: AppColors.accentColor).copyWith(background: AppColors.backgroundColor),
         ),
         routeInformationParser: Modular.routeInformationParser,
         routerDelegate: Modular.routerDelegate,
