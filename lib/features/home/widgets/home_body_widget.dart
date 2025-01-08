@@ -16,7 +16,7 @@ class HomeBodyWidget extends StatelessWidget {
       ),
       width: Sizing.widthPerc(1),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(LanguageUtils.getString("home_body_name", isUpperCase: true),
             style: style.homeHeaderStyle,

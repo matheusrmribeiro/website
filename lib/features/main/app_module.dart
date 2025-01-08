@@ -23,28 +23,6 @@ class AppModule extends Module {
           ROUTE_MAIN,
           child: (context, args) => MainPage(),
           transition: TransitionType.noTransition,
-          children: [
-            ChildRoute(
-              ROUTE_HOME,
-              child: (context, args) => HomePage(),
-              transition: TransitionType.noTransition,
-            ),
-            ChildRoute(
-              ROUTE_ABOUT,
-              child: (context, args) => AboutPage(),
-              transition: TransitionType.noTransition,
-            ),
-            ChildRoute(
-              ROUTE_SKILLS,
-              child: (context, args) => SkillsPage(),
-              transition: TransitionType.noTransition,
-            ),
-            ChildRoute(
-              ROUTE_PROJECTS,
-              child: (context, args) => ProjectsPage(),
-              transition: TransitionType.noTransition,
-            ),
-          ],
         ),
       ];
 }

@@ -9,8 +9,8 @@ Map<String, dynamic> portuguese = {
     "tooltip_open": "Abrir",
     "home_foot": "DESENVOLVIDO COM FLUTTER",
     "home_body_name": "Matheus Ribeiro Miranda",
-    "home_body_role": "Mobile Developer",
-    "home_body_description": "Sou um desenvolvedor mobile e tenho ajudado empresas a entregar as melhores soluções para seus clientes desde 2015.",
+    "home_body_role": "Desenvolvedor de softwares",
+    "home_body_description": "Ajudando empresas a entregar as melhores soluções para seus clientes desde 2015.",
     "about_body_description": r"""<p>
         <b>Hey!</b><br>
         Atualmente trabalho com <b>Kotlin & Flutter</b> e estudo Swift para criar aplicações para iOS.<br><br>

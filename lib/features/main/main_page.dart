@@ -8,6 +8,7 @@ import 'package:website/core/utils/sizing.dart';
 import 'package:website/core/widgets/navbar/navbar_entity.dart';
 import 'package:website/core/widgets/navbar/navbar_view_model.dart';
 import 'package:website/core/widgets/navbar/navbar_widget.dart';
+import 'package:website/features/home/home_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -32,43 +33,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       body: Stack(
         children: [
-          Column(
-            children: [
-              ListenableBuilder(
-                listenable: Modular.get<LanguageViewModel>(),
-                builder: (BuildContext context, Widget? child) {
-                  return NavbarWidget(
-                    pages: [
-                      NavbarPageEntity(
-                        ROUTE_HOME,
-                        LanguageUtils.getString("home"),
-                      ),
-                      NavbarPageEntity(
-                        ROUTE_ABOUT,
-                        LanguageUtils.getString("about"),
-                      ),
-                      NavbarPageEntity(
-                        ROUTE_SKILLS,
-                        LanguageUtils.getString("skills"),
-                      ),
-                      NavbarPageEntity(
-                        ROUTE_PROJECTS,
-                        LanguageUtils.getString("projects"),
-                      ),
-                    ],
-                  );
-                },
-              ),
-              Container(
-                height: 1,
-                color: AppColors.accentColor,
-                margin: EdgeInsets.all(15),
-              ),
-              Expanded(
-                child: RouterOutlet(),
-              )
-            ],
-          ),
+          HomePage(),
           Align(
             alignment: Alignment.bottomLeft,
             child: Container(

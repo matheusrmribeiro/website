@@ -24,7 +24,7 @@ class HomeFooterWidget extends StatelessWidget {
               CustomIcon(
                 icon: "icons/linkedin.svg",
                 onTap: (){
-                  UrlHelper.open("https://www.linkedin.com/in/matheus-ribeiro-miranda/");
+                  UrlHelper.open("https://www.linkedin.com/in/matheusribeiromiranda/");
                 },
               ),
               CustomIcon(

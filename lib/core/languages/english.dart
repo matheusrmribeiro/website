@@ -9,9 +9,9 @@ Map<String, dynamic> english = {
     "tooltip_open": "Open",
     "home_foot": "DEVELOPED WITH FLUTTER",
     "home_body_name": "Matheus Ribeiro Miranda",
-    "home_body_role": "Mobile Developer",
+    "home_body_role": "Software Developer",
     "home_body_description":
-        "I'm a mobile developer and I've been helping companies to deliver the best solutions for their customers since 2015.",
+        "Helping companies to deliver the best solutions for their customers since 2015.",
     "about_body_description": r"""<p>
         <b>Hello!</b><br>
         I'm currently working with <b>Kotlin & Flutter</b> and studying Swift to create applications for iOS.<br><br>
